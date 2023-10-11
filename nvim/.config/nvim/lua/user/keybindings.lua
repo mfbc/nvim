@@ -15,27 +15,6 @@ vim.keymap.set('n', '<leader>e', function()
     vim.api.nvim_command('Lexplore')
 end)
 
-vim.keymap.set('n', '<leader>tc', function()
-    vim.api.nvim_command('ToggleCopilot')
-end)
-
-local ToggleCopilot = function()
-    local result = vim.api.nvim_command_output('Copilot status')
-    if string.find(result, 'Disabled') then
-        vim.api.nvim_command('Copilot enable')
-        print('Copilot is now Enabled')
-    else
-        vim.api.nvim_command('Copilot disable')
-        print('Copilot is now Disabled')
-    end
-end
-
-vim.api.nvim_create_user_command('ToggleCopilot', ToggleCopilot, {})
-vim.keymap.set('v', 'ff', vim.lsp.buf.format)
-vim.keymap.set({'t', 'n'}, '<c-t>', function()
-    vim.api.nvim_command('FloatermToggle')
-end)
-
 vim.api.nvim_set_keymap('n', '<leader><leader>l', '<cmd>lua require("cfuentes.luasnip").setup()<cr>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader><leader>s', '<cmd>so %<cr>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader><leader>z', '<cmd>ZenMode<cr>', {noremap = true, silent = true})

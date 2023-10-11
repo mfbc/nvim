@@ -44,8 +44,6 @@ packer.startup(function(use)
     use 'windwp/nvim-autopairs'
     use 'numToStr/Comment.nvim'
     use 'rafamadriz/friendly-snippets'
-    use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
-    -- use 'github/copilot.vim'
     use { 'laytan/cloak.nvim', config = function() require('cloak').setup({
             enabled = true,
             patterns = {
@@ -75,24 +73,6 @@ packer.startup(function(use)
                 -- or leave it empty to use the default settings
                 -- refer to the configuration section below
             }
-        end
-    }
-    use {
-        "zbirenbaum/copilot.lua",
-        event = "VimEnter",
-        config = function()
-            vim.defer_fn(function()
-                require("copilot").setup()
-            end, 100)
-        end,
-    }
-    use {
-        "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua" },
-        config = function()
-            require("copilot_cmp").setup({
-                method = "getCompletionsCycling"
-            })
         end
     }
     use 'voldikss/vim-floaterm'

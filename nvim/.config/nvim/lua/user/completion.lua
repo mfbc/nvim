@@ -54,8 +54,6 @@ M.setup = function()
             { name = 'luasnip' },
             { name = 'buffer', keyword_length = 5 },
             { name = 'path' },
-            { name = "copilot", group_index = 2 },
-            { name = "cmp_tabnine" },
         }),
         window = {
             documentation = {
@@ -74,8 +72,6 @@ M.setup = function()
                     luasnip = "[Snippet]",
                     buffer = "[Buffer]",
                     path = "[Path]",
-                    cmp_tabnine = "[TN]",
-                    copilot = "[Copilot]",
                 })[entry.source.name]
                 return vim_item
             end,
@@ -123,15 +119,6 @@ M.setup = function()
         }
     end
 end
-
-local tabnine = require("cmp_tabnine.config")
-tabnine:setup({
-    max_lines = 1000,
-    max_num_results = 20,
-    sort = true,
-    run_on_every_keystroke = true,
-    snippet_placeholder = "..",
-})
 
 
 

@@ -64,14 +64,14 @@ M.setup = function()
     local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
     local lspconfig = require('lspconfig')
-    local clients = { "intelephense", "sumneko_lua", "gopls", "rust_analyzer", "pyright", "tsserver", "vuels", "html", "yamlls", "vuels" }
+    local clients = { "intelephense", "lua_ls", "gopls", "rust_analyzer", "pyright", "tsserver", "vuels", "html", "yamlls", "vuels" }
     for _, client in pairs(clients) do
         local c = {
             on_attach = on_attach,
             capabilities = capabilities,
             flags = lsp_flags
         }
-        if client == 'sumneko_lua' then
+        if client == 'lua_ls' then
             c.settings = {
                 Lua = {
                     diagnostics = {
